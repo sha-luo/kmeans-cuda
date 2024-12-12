@@ -3,7 +3,7 @@
 #include "io.h"
 
 void readDataFromFile(struct options_t* args,
-               std::vector<std::vector<double>>& data) {
+               std::vector<double>& data) {
 
   	std::ifstream inputFile(args->input_filename);
     if (!inputFile.is_open()) {
@@ -22,15 +22,12 @@ void readDataFromFile(struct options_t* args,
         int index;
         iss >> index;  // Read the index
 
-        std::vector<double> point;
         double value;
-        
         while (iss >> value) {
-            point.push_back(value);
+            data.push_back(value);
         }
-
-        data.push_back(point);
     }
 
     inputFile.close();
 }
+

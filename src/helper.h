@@ -3,4 +3,4 @@
 
 int kmeans_rand();
 void kmeans_srand(unsigned int seed);
-double euclideanDistance(const std::vector<double>& a, const std::vector<double>& b);
+double euclideanDistance(const std::vector<float>& a, const std::vector<float>& b);

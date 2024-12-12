@@ -13,7 +13,7 @@ void kmeans_srand(unsigned int seed){
 }
 
 // Function to calculate Euclidean distance
-double euclideanDistance(const std::vector<double>& a, const std::vector<double>& b) {
+double euclideanDistance(const std::vector<float>& a, const std::vector<float>& b) {
     double sum = 0.0;
     for (size_t i = 0; i < a.size(); ++i) {
         sum += std::pow(a[i] - b[i], 2);

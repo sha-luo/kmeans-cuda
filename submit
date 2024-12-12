@@ -61,43 +61,9 @@
 #
 # Specification for sequential implementation of kmeans
 #
-[Sequential]
-How_To_Compile:
-Executable:
-Extra_Args:
+[All four implementations]
+How_To_Compile: make
+Executable: bin/kmeans
+Extra_Args: -a approach [1 for sequential; 2 for CUDA gmen; 3 for CUDA shmem; 4 for thrust]
+Comand: ./bin/kmeans -i input/random-n2048-d16-c16.txt -k 16 -d 16 -m 150 -t 1e-6 -s 8675309 -a 4 -c
 
-#
-# Specification for GPU implementation of kmeans
-# using Thrust
-#
-[Thrust]
-How_To_Compile:
-Executable:
-Extra_Args:
-
-#
-# Specification for GPU implementation of kmeans
-# using CUDA
-#
-[CUDA basic]
-How_To_Compile:
-Executable:
-Extra_Args:
-
-#
-# Specification for GPU implementation of kmeans
-# using Shared Memory
-#
-[CUDA shared]
-How_To_Compile:
-Executable:
-Extra_Args:
-
-#
-# Specification for GPU implementation of kmeans
-# Alternatives
-#
-[Alternatives]
-How_To_Compile:
-Executable:
-Extra_Args:

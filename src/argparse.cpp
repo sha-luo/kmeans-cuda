@@ -13,12 +13,14 @@ void get_opts(int argc,
         std::cout << "\t--max_num_iter or -m <an integer specifying the maximum number of iterations>" << std::endl;
         std::cout << "\t--threshold or -t <a double specifying the threshold for convergence>" << std::endl;
         std::cout << "\t--seed or -s <an integer specifying the seed for rand()>"  << std::endl;
+        std::cout << "\t[Optional]--approach or -a <an integer specifying which approach to be invoked to solve kmeans 1 for CPU; 2 for CUDA gmem; 3 for CUDA shmem; 4 for thrust" << std::endl;
         std::cout << "\t[Optional]--centroid_output or -c <a flag to control whether output the centroids or labels>" << std::endl;
         exit(0);
     }
 
     // Initialize opts
     opts->centroid_output = false;
+    opts->approach = 1;
 
 
 
@@ -30,10 +32,11 @@ void get_opts(int argc,
         {"threshold", required_argument, NULL, 't'},
         {"seed", required_argument, NULL, 's'},
         {"centroid_output", no_argument, NULL, 'c'},
+        {"approach", no_argument, NULL, 'a'}
     };
 
     int ind, c;
-    while ((c = getopt_long(argc, argv, "k:d:i:m:t:s:c", l_opts, &ind)) != -1)
+    while ((c = getopt_long(argc, argv, "k:d:i:m:t:s:a:c", l_opts, &ind)) != -1)
     {
         switch (c)
         {
@@ -57,6 +60,9 @@ void get_opts(int argc,
         case 's':
             opts->seed = atoi((char *)optarg);
             break;
+        case 'a':
+            opts->approach = atoi((char *)optarg);
+            break;
         case 'c':
             opts->centroid_output = true;
             break;
@@ -66,4 +72,3 @@ void get_opts(int argc,
         }
     }
 }
-
