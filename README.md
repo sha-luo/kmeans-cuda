@@ -3,11 +3,15 @@
 ### Introduction
 K-means is a machine learning algorithm most commonly used for unsupervised learning. This exercise focuses on leveraging CUDA and its libraries to accelerate the K-means algorithm. Four distinct methods of implementation are examined:
 * **Sequential**: The sequential implementation using CPU serves as the baseline for performance comparison.
-* **CUDA global memory**: This basic CUDA implementation parallelizes the primaries steps of K-means algorithm, finding nearest centroid and assigning each data point to the nearest centroid, in each iteration using global memory.
+* **CUDA global memory**: This basic CUDA implementation parallelizes the primaries steps of K-means algorithm, finding nearest centroid and assigning each data point to the nearest centroid, in each iteration of the K-means algorithm.
 * **CUDA shared memory**: Shared memory is a special type of memory located in each SM. It provides significantly lower latency compared to accessing global memory. It is explicitly controlled by the programmer and is shared among all threads in a block that are running on the same SM. 
 * **Thrust**: Thrust is a high-level parallel programming library in CUDA, which allows developers to write GPU code in a more abstract way without dealing with low-level CUDA details such as kernel launch and memory management.
 
 ### Performance
+<div style="text-align: center;">
+  <img src="./img/speedup.png" alt="Runtime Performance Analysis" style="width:700px; height:400px;">
+</div>
+We achieved up to 20 to 25 times speed up on CUDA, with the highest improvement on CUDA shared memory impelementation. 
 
 
 ### To run the program 
