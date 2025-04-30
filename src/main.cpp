@@ -61,7 +61,6 @@ int main(int argc, char **argv)
         printClusters(assignments);
     }
 
-    // ... rest of your code ...
 }
 
 /*
